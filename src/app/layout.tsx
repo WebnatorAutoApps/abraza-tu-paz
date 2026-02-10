@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -9,15 +9,26 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Abraza tu Paz",
+  title: "Abraza tu Paz | Psicologia Integral — Maria Laurentin",
   description:
-    "Find your inner calm. A space dedicated to mindfulness, well-being, and personal growth.",
+    "Consulta de psicologia integral en Madrid. Maria Gabriela Laurentin te acompana en tu camino hacia el bienestar emocional, el equilibrio y la paz interior.",
+  keywords: [
+    "psicologia",
+    "psicologia integral",
+    "bienestar emocional",
+    "terapia Madrid",
+    "ansiedad laboral",
+    "Maria Laurentin",
+    "Abraza tu Paz",
+  ],
+  openGraph: {
+    title: "Abraza tu Paz | Psicologia Integral",
+    description:
+      "Consulta de psicologia integral en Madrid. Encuentra tu equilibrio emocional con Maria Gabriela Laurentin.",
+    type: "website",
+    locale: "es_ES",
+  },
 };
 
 export default function RootLayout({
@@ -26,10 +37,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="es">
+      <body className={`${geistSans.variable} antialiased`}>
         <div className="flex min-h-screen flex-col">
           <Header />
           {children}
